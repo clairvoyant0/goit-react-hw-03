@@ -9,10 +9,10 @@ const ProfileValidationSchema = Yup.object().shape({
   tel: Yup.string().required("Number is required").min(3, "Number must be at least 3 characters").max(50, "Number can't exceed 50 characters"),
 });
 
-const ContactForm = ({ onAddProfile }) => {
+const ContactForm = ({ onSubmit }) => {
   
       const handleSubmit = (values, { resetForm }) => {
-      onAddProfile({
+        onSubmit({
         id: Date.now(),
         name: values.username,
         number: values.tel,
